@@ -233,6 +233,8 @@
       "@deepseek-ai/dsh-client-ui-session": ["./packages/client/ui-session/src"],
       "@deepseek-ai/dsh-client-ui-session/client": ["./packages/client/ui-session/src/client"],
       "@deepseek-ai/dsh-client-connection": ["./packages/client/connection/src"],
+      "@deepseek-ai/dsh-client-custom-my-workflow": ["./packages/client/custom-my-workflow/src"],
+      "@deepseek-ai/dsh-client-custom-my-workflow/client": ["./packages/client/custom-my-workflow/src/client/index.ts"],
       "@deepseek-ai/dsh-client-file-upload": ["./packages/client/file-upload/src"],
       "@deepseek-ai/dsh-client-file-upload/client": ["./packages/client/file-upload/src/client/index.ts"],
       "@deepseek-ai/dsh-api-remotes": ["./packages/api/remotes/src"],
