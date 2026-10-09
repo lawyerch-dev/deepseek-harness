@@ -1,0 +1,48 @@
+# @deepseek-ai/dsh-client-custom-my-workflow
+
+Business Test panel for the dsh web client: a sidebar entry and the welcome
+page it opens in the main column.
+
+整包即插即用：本目录（`custom-` 前缀，与官方 `dsh-client-*` 插件区分）同时是
+插件代码、启动清单（`cordis.yml`）与启动脚本（`run.sh`）的家。
+
+## Summary
+
+The browser half registers the Business Test entry into the layout-owned
+`sidebar.panellist` list and the welcome page into the keyed `main` panel under
+one shared panel id (`my-workflow`). Selecting the entry opens the page; the
+page hosts a small click counter: **Click me (+1)** increments and **Reset**
+clears it, demonstrating how a plugin updates UI state.
+
+## Run
+
+```sh
+./packages/client/custom-my-workflow/run.sh --no-open
+```
+
+Launch at <http://127.0.0.1:3080>; the Business Test entry appears in the
+sidebar and opens the counter page. On `cordis.yml` or browser-source changes,
+rebuild before probing a live server (the registry serves `lib/client.js`,
+not sources):
+
+```sh
+pnpm exec tsc -b tsconfig.client.json
+pnpm --filter @deepseek-ai/dsh-client-custom-my-workflow bundle
+```
+
+Both steps are required: the bundle consumes the `lib/types` output from the
+first step, so running only the second will not pick up source edits.
+
+## Slots registered
+
+- `sidebar.panellist` (`id: 'my-workflow'`, `order: 20`) — the sidebar entry, with the label resolved from the `myWorkflow` dictionary.
+- `main` (`key: 'my-workflow'`) — the welcome page.
+
+## Configuration
+
+None. The node half is an empty `apply`, keeping the browser feature
+addressable from the host-owned Loader overlay.
+
+## Model Experience
+
+None. This browser UI registers no model-facing tools or messages.

@@ -1,0 +1,10 @@
+# 你的自定义插件（custom- 前缀，区别于官方插件）。--patch 覆盖层
+#
+# 用法：./packages/client/custom-my-workflow/run.sh
+#
+# 这一行把浏览器侧插件挂进运行时。插件本体就是本目录（src/），
+# 它提供侧边栏入口「业务测试」和点开后的欢迎页（点击计数器）。
+
+- insert:
+    - id: custom-my-workflow
+      name: '@deepseek-ai/dsh-client-custom-my-workflow'
